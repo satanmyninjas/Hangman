@@ -4,9 +4,10 @@ def gallows():
   arm_torso_space = "/| "
   arm_torso_arm = "/|\ "
   fused_legs = " ^ "
-  extended_legs = "/ \ "
+  leg_space_space = "/  "
+  both_legs = "/ \"
 
-  extremities = [head, arm_2_spaces, arm_torso_space, arm_torso_arm, fused_legs, extended_legs]
+  extremities = [head, arm_2_spaces, arm_torso_space, arm_torso_arm, fused_legs, leg_space_space, both_legs]
   
   while True:
     for _ in extremities:
