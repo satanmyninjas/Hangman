@@ -1,6 +1,13 @@
 count = 0
 game_run = True
 def gallows(count):
+  """
+  Function defined like so:
+  gallows({number})
+  
+  Number has to be 1-9, with 9
+  being when you lose the game.
+  """
   a = "  |--------|"
   b = "  |         "
   c = "  |          "
@@ -66,6 +73,25 @@ def gallows(count):
   print(f)
   print(g)
   print(h)
+  
+  """
+  Thinking of implementing classes with specific methods.
+  EX: class Hangman
+      . . . with all of its sepcific methods.
+      
+  Should add exception or dialogue
+  to occur if the user is a smartass
+  and writes in a b.s input.
+      
+  Or, we can add on to this file and 
+  implement the rules of the game 
+  into a separate function.
+  
+  We'll see once we get
+  into a flow for this.
+  
+  - Kayla <3
+  """
 
 def play(letter):
   pass
