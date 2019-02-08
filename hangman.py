@@ -1,3 +1,4 @@
+"""
 def gallows():
   head = " 0 "
   arm_2_spaces = "/  "
@@ -12,3 +13,5 @@ def gallows():
   while True:
     for _ in extremities:
       yield _
+"""
+# my bs attempt, ariel clutched this
