@@ -1,12 +1,13 @@
+"""
 count = 0
 game_run = True
 def gallows(count):
   """
-  Function defined like so:
-  gallows({number})
+  'Function defined like so:
+  'gallows({number})
   
-  Number has to be 1-9, with 9
-  being when you lose the game.
+  'Number has to be 1-9, with 9
+  'being when you lose the game.
   """
   a = "  |--------|"
   b = "  |         "
@@ -73,6 +74,7 @@ def gallows(count):
   print(f)
   print(g)
   print(h)
+  """
   
   """
   Thinking of implementing classes with specific methods.
@@ -92,6 +94,69 @@ def gallows(count):
   
   - Kayla <3
   """
+# adding my own spice to this
+def gallows():
 
+  a = "  |--------|"
+  b = "  |        " # head
+  c = "  |       " # torso, add extra space for last arm
+  d = "  |        " # add carrot
+  e = "  |       " # add leg, space, leg, space
+  f = "  |      " # degree, 3 spaces, degree
+  g = "  |"
+  h = "-----"
+
+  count = 0
+
+  while True:
+    if count == 0:
+      pass
+
+    elif count == 1:
+      yield b + "0"
+      count += 1
+
+    elif count == 2:
+      yield c + "/"
+      count += 1
+
+    elif count == 3:
+      yield c + "|"
+      count += 1
+
+    elif count == 4:
+      yield c + "\ "
+      count += 1
+
+    elif count == 4:
+      yield d + "^"
+      count += 1
+
+    elif count == 5:
+      yield e + "/ "
+      count += 1
+
+    elif count == 6:
+      yield e + "\ "
+      count += 1
+
+    elif count == 7:
+      yield f + "°"
+      count += 1
+
+    elif count == 8:
+      yield f + "   °"
+      count += 1
+      f'You made {count} mistakes. Game over!'
+    
+  print(a)
+  print(b)
+  print(c)
+  print(d)
+  print(e)
+  print(f)
+  print(g)
+  print(h)
+  
 def play(letter):
   pass
