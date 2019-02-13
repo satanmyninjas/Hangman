@@ -1,14 +1,4 @@
 """
-count = 0
-game_run = True
-def gallows(count):
-  """
-  'Function defined like so:'
-  'gallows({number})'
-  
-  'Number has to be 1-9, with 9'
-  'being when you lose the game.'
-  """
   a = "  |--------|"
   b = "  |         "
   c = "  |          "
@@ -74,29 +64,52 @@ def gallows(count):
   print(f)
   print(g)
   print(h)
-  """
+"""
+
 
 def gallows():
+
   """
-  a = "|--------|"
-  b = "|        "  # head
-  c = "|       "  # torso, add extra space for last arm
-  d = "|        "  # add carrot
-  e = "|       "  # add leg, space, leg, space
-  f = "|      "  # degree, 3 spaces, degree
-  g = "|"
-  h = "-----"
+  "|--------|"
+  "|        "  # head
+  "|       "  # torso, add extra space for last arm
+  "|        "  # add carrot
+  "|       "  # add leg, space, leg, space
+  "|      "  # degree, 3 spaces, degree
+  "|"
+  "-----"
   """
+
   # what i'm basing the list off
-  pieces = ["", "0", "/", "|", "\ ", "^", "/", "\ ", "°", "°"]
-  structure = ["|--------|", "|        ", "|       ", "|        ", "|       ", "|      ", "|", "-----"]
+  pieces = ["", "0", "/", "|", "\ ", "^", "/", " \ ", "°", "   °"]
+
+  structure = ["|--------|",
+               "|        ",
+               "|       ",
+               "|        ",
+               "|       ",
+               "|      ",
+               "|",
+               "-----"
+               ]
 
   mistakes = 0
   # look over fibonacci generator for specific usage on other variables
 
-  game_over_number = 9
+  game_over_trigger = 9
   # trigger game over at this number
 
   # '\n '.join(structure)
+  # structure[1] + pieces[1]
+  # while statement below
 
-  # while statement
+  while mistakes < game_over_trigger:
+      yield mistakes
+      mistakes =+ 1
+      structure[mistakes] + pieces[mistakes]
+
+      if mistakes == game_over_trigger:
+          f'GAME OVER! You made {mistakes} mistakes.'
+
+  for i in structure:
+      print(i)
