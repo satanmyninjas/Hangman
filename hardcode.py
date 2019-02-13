@@ -3,11 +3,11 @@ count = 0
 game_run = True
 def gallows(count):
   """
-  'Function defined like so:
-  'gallows({number})
+  'Function defined like so:'
+  'gallows({number})'
   
-  'Number has to be 1-9, with 9
-  'being when you lose the game.
+  'Number has to be 1-9, with 9'
+  'being when you lose the game.'
   """
   a = "  |--------|"
   b = "  |         "
@@ -75,88 +75,28 @@ def gallows(count):
   print(g)
   print(h)
   """
-  
-  """
-  Thinking of implementing classes with specific methods.
-  EX: class Hangman
-      . . . with all of its sepcific methods.
-      
-  Should add exception or dialogue
-  to occur if the user is a smartass
-  and writes in a b.s input.
-      
-  Or, we can add on to this file and 
-  implement the rules of the game 
-  into a separate function.
-  
-  We'll see once we get
-  into a flow for this.
-  
-  - Kayla <3
-  """
-# adding my own spice to this
+
 def gallows():
-
-  a = "  |--------|"
-  b = "  |        " # head
-  c = "  |       " # torso, add extra space for last arm
-  d = "  |        " # add carrot
-  e = "  |       " # add leg, space, leg, space
-  f = "  |      " # degree, 3 spaces, degree
-  g = "  |"
+  """
+  a = "|--------|"
+  b = "|        "  # head
+  c = "|       "  # torso, add extra space for last arm
+  d = "|        "  # add carrot
+  e = "|       "  # add leg, space, leg, space
+  f = "|      "  # degree, 3 spaces, degree
+  g = "|"
   h = "-----"
+  """
+  # what i'm basing the list off
+  pieces = ["", "0", "/", "|", "\ ", "^", "/", "\ ", "°", "°"]
+  structure = ["|--------|", "|        ", "|       ", "|        ", "|       ", "|      ", "|", "-----"]
 
-  count = 0
+  mistakes = 0
+  # look over fibonacci generator for specific usage on other variables
 
-  while True:
-    if count == 0:
-      pass
+  game_over_number = 9
+  # trigger game over at this number
 
-    elif count == 1:
-      yield b + "0"
-      count += 1
+  # '\n '.join(structure)
 
-    elif count == 2:
-      yield c + "/"
-      count += 1
-
-    elif count == 3:
-      yield c + "|"
-      count += 1
-
-    elif count == 4:
-      yield c + "\ "
-      count += 1
-
-    elif count == 4:
-      yield d + "^"
-      count += 1
-
-    elif count == 5:
-      yield e + "/ "
-      count += 1
-
-    elif count == 6:
-      yield e + "\ "
-      count += 1
-
-    elif count == 7:
-      yield f + "°"
-      count += 1
-
-    elif count == 8:
-      yield f + "   °"
-      count += 1
-      f'You made {count} mistakes. Game over!'
-    
-  print(a)
-  print(b)
-  print(c)
-  print(d)
-  print(e)
-  print(f)
-  print(g)
-  print(h)
-  
-def play(letter):
-  pass
+  # while statement
