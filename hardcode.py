@@ -83,7 +83,8 @@ def gallows():
   # what i'm basing the list off
   pieces = ["", "0", "/", "|", "\ ", "^", "/", " \ ", "°", "   °"]
 
-  structure = ["|--------|",
+  structure = [
+               "|--------|",
                "|        ",
                "|       ",
                "|        ",
