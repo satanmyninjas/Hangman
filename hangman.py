@@ -1,3 +1,11 @@
+"""
+Add game logic for later on, reuse older code
+i.e chomp
+
+Use random.choice({dictionary file}), then use .pop()
+check notes for implementation
+"""
+
 def hangman_gen():
 # what i'm basing the list off
   pieces = ["", "0", "/", "|", "\ ", "^", "/", " \ ", "°", "   °"]
