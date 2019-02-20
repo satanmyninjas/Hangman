@@ -2,9 +2,16 @@
 Add game logic for later on, reuse older code
 i.e chomp
 
-Use random.choice({dictionary file}), then use .pop()
-check notes for implementation
+Will use other solution (as this one
+clearly doesn't work well)
+
+begin on game logic for now,
+refresh on using csv files and how
+to use them, read documentation + notes
+from class
 """
+
+# just void this bs attempt in the meantime
 
 def hangman_gen():
 # what i'm basing the list off
