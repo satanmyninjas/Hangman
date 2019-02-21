@@ -2,49 +2,30 @@
 Add game logic for later on, reuse older code
 i.e chomp
 
-Will use other solution (as this one
-clearly doesn't work well)
-
 begin on game logic for now,
 refresh on using csv files and how
 to use them, read documentation + notes
 from class
+
+remind:
+from hangman import hang
+
+from <file name> import <function / class / whatever>
 """
 
-# just void this bs attempt in the meantime
 
-def hangman_gen():
-# what i'm basing the list off
-  pieces = ["", "0", "/", "|", "\ ", "^", "/", " \ ", "°", "   °"]
-
-  structure = [
-               "|--------|",
-               "|        ",
-               "|       ",
-               "|        ",
-               "|       ",
-               "|      ",
-               "|",
-               "-----"
-               ]
-
-  mistakes = 0
-  # look over fibonacci generator for specific usage on other variables
-
-  game_over_trigger = 9
-  # trigger game over at this number
-
-  # '\n '.join(structure)
-  # structure[1] + pieces[1]
-  # while statement below
-
-  while mistakes < game_over_trigger:
-      yield mistakes
-      mistakes =+ 1
-      structure[mistakes] + pieces[mistakes]
-
-      if mistakes == game_over_trigger:
-          f'GAME OVER! You made {mistakes} mistakes.'
-
-  for i in structure:
-      print(i)
+# note: does not have empty gallows at start, begins at head
+def hang():
+    gallows = [',--;-', '| ', '| ', '| ', '| ', '| ', '|_____']
+    parts = iter([' 0 ', '/', '|', '\\', ' | ', ' A ', '/ ', '\\'])
+    sequence = [1, 3, 1, 1, 2]
+    # double loop below allows for this enum index-value pair
+    # to simply get the next piece
+    for i, v in enumerate(sequence, start=1):
+        # enumerate(sequence) creates tuples + iterator, thus
+        # getting the index-value pairs
+        for k in range(v):
+            gallows[i] += next(parts)
+            yield '\n'.join(gallows)
+            # adds, then joins together
+    raise StopIteration
