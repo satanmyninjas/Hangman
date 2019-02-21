@@ -29,3 +29,26 @@ def hang():
             yield '\n'.join(gallows)
             # adds, then joins together
     raise StopIteration
+
+
+mistakes = 0
+while mistakes < 8:
+    pass
+
+    # implement difficulty or word length
+    # pick word at random
+    # for every letter, **try to replace w/ underscores
+    # guess
+    # if guess is incorrect, call hang() and  mistakes += 1
+    # if guess is correct, continue on
+
+    # keep checking if the guess matches the word
+    # once mistakes = 8, game over
+
+    # give option to play again, y / n
+    # if yes, go back to prompting for word length / difficulty for new word
+    # if no, break
+
+    # add a default mode for **any word in the file if player doesn't specify a length
+    # look up csv docs
+
