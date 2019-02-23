@@ -1,5 +1,6 @@
 import random
 
+
 """
 Add game logic for later on, reuse older code
 i.e chomp
@@ -35,42 +36,53 @@ def hang():
 # randomly selecting a word
 # TODO: fix this hot mess
 def choose_word():
-    with open('words.csv', mode='r') as csv_file:
-        yield random.choice(list(csv_file)).lower()  # avoids proper nouns by lower casing everything
+    with open('words.csv') as csv_file:
+        words = list(csv_file)
+        word_list = [word[:-1] for word in words if word == word.lower()
+                     and len(word) > 4
+                     and "-" not in word
+                     and "'" not in word]
+        yield random.choices(word_list)
 
 
 # other functions are defined above to be used down here for reference
 mistakes = 0  # once 8 repetitions of hang() is done, game over
-secret_word = list(choose_word())
-underscores = "_ " * len(secret_word)
-tries_left = int((8 - (mistakes)))
+secret = choose_word()
+underscores = ["_ " for letter in secret]
+tries_left = int((8 - mistakes))
 lynch = hang()
-win_count = 0  # will go up if you guess correctly, if win_count == len(secret_word), you win
+correct_guesses = 0  # will go up if you guess correctly, if win_count == len(secret_word), you win
+game_over = False
 
 # while statement where game is actually ran.
 # other functions are defined above to be used down here for reference
-while mistakes < 8:
+while not game_over:
     f'HANGMAN \n'
     print(underscores)
     guess = input("Enter a letter: ")
-    if guess == secret_word:
-        for letter in range(len(secret_word)):
-            if guess == secret_word[letter]:
-                secret_word[letter] = secret_word[letter]
+
+    if guess in secret:
+        correct_guesses += 1
+        for letters in secret:
+            # keeps track of position, allowing us to redefine our progress as a guess
+            for idx, letter in enumerate(secret):  # if given an iterable, enumerate creates index-value pairs
+                if letter == guess:
+                    underscores[idx] = guess
         f'Correct! Keep going. '
-        win_count += 1
-        # replace the blank with what the user guessed
-    elif guess != secret_word:
+
+    elif guess not in secret:
         mistakes += 1
         print(next(lynch))
         f'Incorrect. So far, you have {tries_left} remaining chances. '
-    elif mistakes == 8:
-        f'Game over!\n'
-    elif win_count == len(secret_word):
-        f'Congratulations, you won!'
+
+    elif correct_guesses == len(secret) or mistakes == 8:
+        f'Number of mistakes made: {mistakes} \n'
+        f'Number of times you guessed correctly: {correct_guesses}\n'
+        f'The secret word was: {secret}'
         play_again = input("Would you like to stop playing? y / n \n").lower()
         if play_again == "n":
             break
+
 
 # TODO: guess a letter
 # TODO: if guess is incorrect, call hang() and  mistakes += 1
