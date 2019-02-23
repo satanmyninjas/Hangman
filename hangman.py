@@ -45,11 +45,11 @@ with open('words.csv') as csv_file:
 
 # other functions are defined above to be used down here for reference
 mistakes = 0  # once 8 repetitions of hang() is done, game over
-secret = random.choices(word_list)
-underscores = ["_ " for letter in secret]
+secret = random.choice(word_list)
+progress = ["_" for letter in secret]
 tries_left = int((8 - mistakes))
 lynch = hang()
-correct_guesses = 0  # will go up if you guess correctly, if win_count == len(secret_word), you win
+correct_guesses = 0  # will go up if you guess correctly, if correct_guesses == len(secret_word), you win
 game_over = False
 
 
@@ -57,16 +57,15 @@ game_over = False
 # other functions are defined above to be used down here for reference
 while not game_over:
     f'HANGMAN \n'
-    print(underscores)
+    print(progress)
     guess = input("Enter a letter: ")
-
     if guess in secret:
         correct_guesses += 1
-        for letters in secret:
+        for letter in secret:
             # keeps track of position, allowing us to redefine our progress as a guess
             for idx, letter in enumerate(secret):  # if given an iterable, enumerate creates index-value pairs
                 if letter == guess:
-                    underscores[idx] = guess
+                    progress[idx] = guess
         f'Correct! Keep going. '
 
     elif guess not in secret:
@@ -83,30 +82,7 @@ while not game_over:
             break
 
 
-# TODO: guess a letter
-# TODO: if guess is incorrect, call hang() and  mistakes += 1
-# TODO: if guess is correct, continue on
-
-# TODO: keep checking if the guess matches the word
-# TODO: once mistakes = 8, game over
-
-# TODO: give option to play again, y / n
-# TODO: if yes, go back to prompting for word length / difficulty for new word
-# TODO: if no, break
-
-# look up csv docs
-
-# TODO: for every letter, **try to replace w/ underscores
-# TODO: guess
-# TODO: if guess is incorrect, call hang() and  mistakes += 1
-# TODO: if guess is correct, continue on
-
-# TODO: keep checking if the guess matches the word
-# TODO: once mistakes = 8, game over
-
-# TODO: give option to play again, y / n
-# TODO: if yes, go back to prompting for word length / difficulty for new word
-# TODO: if no, break
-
-# (optional) add a default mode for **any word in the file if player doesn't specify a length
+# TODO: resolve issue with game still continuing after you successfully guessed a word
+# TODO: fix logic, has to show game over when either word is complete, or you hung a man too many times
+# TODO: make the game show what the secret word was after game over, fix logic
 
