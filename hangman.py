@@ -35,24 +35,23 @@ def hang():
 
 # randomly selecting a word
 # TODO: fix this hot mess
-def choose_word():
-    with open('words.csv') as csv_file:
-        words = list(csv_file)
-        word_list = [word[:-1] for word in words if word == word.lower()
-                     and len(word) > 4
-                     and "-" not in word
-                     and "'" not in word]
-        yield random.choices(word_list)
+with open('words.csv') as csv_file:
+    words = list(csv_file)
+    word_list = [word[:-1] for word in words if word == word.lower()
+                 and len(word) > 4
+                 and "-" not in word
+                 and "'" not in word]
 
 
 # other functions are defined above to be used down here for reference
 mistakes = 0  # once 8 repetitions of hang() is done, game over
-secret = choose_word()
+secret = random.choices(word_list)
 underscores = ["_ " for letter in secret]
 tries_left = int((8 - mistakes))
 lynch = hang()
 correct_guesses = 0  # will go up if you guess correctly, if win_count == len(secret_word), you win
 game_over = False
+
 
 # while statement where game is actually ran.
 # other functions are defined above to be used down here for reference
